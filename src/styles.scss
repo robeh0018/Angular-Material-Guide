@@ -1,5 +1,93 @@
 @use '@angular/material' as mat;
 /* You can add global styles to this file, and also import other style files */
 
-@import "@angular/material/prebuilt-themes/indigo-pink.css";
+
+@include mat.core();
+
+$dark-primary-text: rgba( black, 0.87 );
+$light-primary-text: white;
+
+/* For use in src/lib/core/theming/_palette.scss */
+$mat-primary:(
+  50 : #f4eaef,
+  100 : #e4cad7,
+  200 : #d3a6bc,
+  300 : #c182a1,
+  400 : #b3688d,
+  500 : #a64d79,
+  600 : #9e4671,
+  700 : #953d66,
+  800 : #8b345c,
+  900 : #7b2549,
+  A100 : #ffbcd7,
+  A200 : #ff89b8,
+  A400 : #ff5699,
+  A700 : #ff3c8a,
+  contrast: (
+    50 : #000000,
+    100 : #000000,
+    200 : #000000,
+    300 : #000000,
+    400 : #000000,
+    500 : #ffffff,
+    600 : #ffffff,
+    700 : #ffffff,
+    800 : #ffffff,
+    900 : #ffffff,
+    A100 : #000000,
+    A200 : #000000,
+    A400 : #000000,
+    A700 : #ffffff,
+  )
+);
+
+
+/* For use in src/lib/core/theming/_palette.scss */
+$mat-accent: (
+  50 : #fffdf9,
+  100 : #fffbf0,
+  200 : #fff9e6,
+  300 : #fff6db,
+  400 : #fff4d4,
+  500 : #1da525,
+  600 : #fff0c7,
+  700 : #ffeec0,
+  800 : #ffecb9,
+  900 : #00fd74,
+  A100 : #ffffff,
+  A200 : #ffffff,
+  A400 : #ffffff,
+  A700 : #ffffff,
+  contrast: (
+    50 : #000000,
+    100 : #000000,
+    200 : #000000,
+    300 : #000000,
+    400 : #000000,
+    500 : #000000,
+    600 : #000000,
+    700 : #000000,
+    800 : #000000,
+    900 : #000000,
+    A100 : #000000,
+    A200 : #000000,
+    A400 : #000000,
+    A700 : #000000,
+  )
+);
+
+$primary: mat.define-palette($mat-primary);
+$accent: mat.define-palette($mat-accent);
+$theme: mat.define-light-theme($primary, $accent);
+
+@include mat.all-component-themes($theme);
+
+@import "./mixins";
+
+@include responsive-dialogs();
+
+.highlight-date {
+  background: red !important;
+}
+
 

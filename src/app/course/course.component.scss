@@ -1,7 +1,7 @@
 
 .course {
     text-align: center;
-    width: 390px;
+    width: 80%;
     margin: 40px auto;
 }
 
@@ -16,6 +16,16 @@
   margin: 10px auto;
 }
 
+.collapsed-detail {
+  display: none;
+}
+
+.scrolling-container {
+  //overflow: auto;
+  //max-height: 250px;
+  //max-width: 200px;
+}
+
 .duration-cell {
   text-align: center;
 }
@@ -27,25 +37,24 @@
 }
 
 .spinner-container {
-  height: 360px;
-  width: 390px;
+  min-height: 360px;
+  width: 80%;
   position: fixed;
 }
 
 .lessons-table {
   min-height: 360px;
-  margin-top: 10px;
-  width: 400px;
+  margin-top: 20px;
   margin-left: auto;
   margin-right: auto;
-  tr:hover {
-    background: whitesmoke;
-    cursor: pointer;
-  }
+}
+
+.lessons-table tr:hover {
+  background: whitesmoke;
+  cursor: pointer;
 }
 
 mat-paginator {
-  width: 400px;
   padding-bottom: 10px;
   margin-bottom: 100px;
 }

@@ -79,7 +79,7 @@ export class DragDropComponent {
       'description': 'Custom Themes',
       'duration': '8:55',
       'seqNo': 10,
-      courseId: 11
+      courseId: 11,
     },
     {
       id: 130,
@@ -90,4 +90,30 @@ export class DragDropComponent {
     }
   ];
 
+  done= [];
+
+
+  onDrop($event: CdkDragDrop<Lesson[]>) {
+
+    //console.log($event.previousIndex, $event.currentIndex);
+
+    moveItemInArray(this.lessons, $event.previousIndex, $event.currentIndex);
+  };
+
+  onDropMultiList($event: CdkDragDrop<{id: number, description: string, duration: string, seqNo: number, courseId: number}[]>) {
+
+    if ($event.previousContainer === $event.container) {
+
+      moveItemInArray(this.lessons, $event.previousIndex, $event.currentIndex);
+    } else {
+
+      transferArrayItem(
+        $event.previousContainer.data,
+        $event.container.data,
+        $event.previousIndex,
+        $event.currentIndex,
+      );
+    }
+
+  }
 }
